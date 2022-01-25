@@ -1,0 +1,16 @@
+ <everyones_name>
+ <names sl_num="23">
+  <name > Jhon Carter </name>
+  <admission_date> 25/12/2015 </admission_date>
+</names>
+
+ <names sl_num="29">
+  <name > Bob marshal </name>
+  <admission_date> 13/01/1999 </admission_date>
+</names>
+
+ <names sl_num="35">
+  <name > Clark Kent </name>
+  <admission_date> 17/06/2005 </admission_date>
+</names>
+</everyones_name>
