@@ -1,0 +1,15 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <form method="" action="">
+  <tr> 
+  	 <td>Name</td><br>
+  	 <td><input type="text" name="myname" value=""> </td><br>
+     <input type="submit" name="submit" value="Submit">
+  </tr>	
+
+</form>
+</body>
+</html>
