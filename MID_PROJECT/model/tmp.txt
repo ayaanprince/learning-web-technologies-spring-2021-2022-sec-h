@@ -1,0 +1,5 @@
+Prince|amprince322@gmail.com|prince|11|Male|1111-11-11
+Prince|amprince322@gmail.com|prince|11|Male|1111-11-11
+Ayaan|prince40091@gmail.com|ayaan|123|Female|2222-02-22
+ayaan|amprince322@gmail.com|Female|1111-11-11
+kobi|amprince322@gmail.com|Female|1111-11-11
