@@ -11,7 +11,7 @@
 			$admin_array = explode('|', $get_file);
 			if(isset($admin_array[2]) and isset($admin_array[3]))
 			{
-				//print_r($agency_array);
+				
 				if(trim($admin_array[2]) == $username && trim($admin_array[3]) == $password)
 				{
 					$current_user['username'] = trim($admin_array[2]);

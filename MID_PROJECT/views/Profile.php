@@ -97,10 +97,12 @@
 							<tr>
 								 <td><a href = "Edit_profile.php"> Edit Profile </a> </td>
 								 <td> </td>
-								 <td><a href = "../controller/Change_Profile_picture.php"> Change Profile Picture </a> </td>
+								 <td><a href = "../controller/Check_Profile_picture.php"> Change Profile Picture </a>
+								 <img src = "upload/<?=$_SESSION['Adminpic']?>" height="200px" width = "200px" align="right">
+								  </td>
 							</tr>
 							<tr>
-								<td><img src = "upload/<?=$_SESSION['Adminpic']?>" height="" width = "" align="right"> </td>
+								<td> </td>
 								<td> </td>
 								<td rowspan="3">  </td>
 							</tr>

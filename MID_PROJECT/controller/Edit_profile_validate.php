@@ -24,7 +24,7 @@
 			{
 				$get_admin = fgets($file);
 				$admin_array = explode('|', $get_admin);
-				//print_r($agency_array);
+				
 				if(isset($admin_array[0]) and trim($admin_array[0]) == $username)
 				{
 					continue;

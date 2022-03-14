@@ -1,7 +1,7 @@
 <?php 
 	session_start();
 	//print_r($_REQUEST);
-	$agency = [
+	$admin = [
 		'myname' => "", 'email' => "", 'username' => "", 'password' => "", 'confirm' => "",'gender' => "",'dob'=>""
 	];
 	if(isset($_REQUEST['submit']))
@@ -32,7 +32,7 @@
 			while(!feof($file))
 			{
 				$get_admin = fgets($file);
-				$admin_array = explode('|', $get_agency);
+				$admin_array = explode('|', $get_admin);
 				if(isset($admin_array[2]) and trim($admin_array[2]) == $username)
 				{
 					$name_taken = true;
