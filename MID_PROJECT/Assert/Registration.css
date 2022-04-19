@@ -1,0 +1,51 @@
+*{
+	
+	margin: 0;
+	padding: 0;
+}
+body{
+ background-image: url("../model/one.gif");
+ background-repeat: no-repeat;
+ background-size:100%
+
+  
+}
+
+div.main{
+	
+	
+	
+}
+div.register{
+	background-color:rgba(0,0,0,0.5);
+	padding-left: 50px;
+	padding-right: 40px;
+	border-radius: 30px;
+	margin-top: 150px;
+	padding-bottom: 30px;
+	margin-left: 600px;
+	margin-right: 500px;
+	align-content: center;
+	
+	
+	
+	
+	
+}
+label{
+	color: white;
+
+}
+h1{
+	color: white;
+}
+h4{
+	color: white;
+}
+div.red{
+	color: red;
+}
+span{
+	color:red;
+}
+

@@ -2,7 +2,7 @@
   session_start();
   if(isset($_REQUEST['submit'])){
 
-    print_r($_FILES['browse']);
+    //print_r($_FILES['browse']);
 
     $src = $_FILES['browse']['tmp_name'];
     $temp = explode(".", $_FILES["browse"]["name"]);

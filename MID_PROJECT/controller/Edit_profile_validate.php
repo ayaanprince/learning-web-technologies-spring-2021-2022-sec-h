@@ -1,58 +1,30 @@
 <?php 
 	session_start();
-	$file = fopen('../model/tmp.txt', 'w');
-	fwrite($file, "");
-	fclose($file);
-	if(isset($_REQUEST['submit']))
+	$id =$_SESSION['current_adminid'];
+	$con = mysqli_connect('localhost', 'root', '', 'e-learningdb');
+    //$con = connection();
+	 $sql = "select * from admin where adminid = '{$id}'";
+	 $res = mysqli_query($con, $sql);
+	 $row =  mysqli_fetch_assoc($res);
+	 //$username = $row['Username'];
+	// $name = $row['Name'];
+	 //$email = $row['Email'];
+	// $gender = $row['Gender'];
+	// $dob = $row['DOB'];
+	 if(isset($_POST['submit']))
 	{
-		$username = $_SESSION['current_user']['username'];
-		$myname = $_REQUEST['myname'];
-		$email =  $_REQUEST['email'];
-		$gender =  $_REQUEST['gender'];
-		$dob =  $_REQUEST['dob'];
-		
-		if($myname == "" or  $email == "" or $gender == "" or $dob=="") 
-		{
-			echo "Fields cannot be left empty";
-		}
-		else
-		{
-			$file = fopen('../model/admin.txt', 'r');
-			$tmp = fopen('../Model/tmp.txt', 'w');
+		$myname = $_POST['myname'];
+		$email = $_POST['email'];
+		$gender = $_POST['gender'];
+		$dob = $_POST['dob'];
+		$sql = "update admin set Name='{$myname}',
+		Email='{$email}',
+		Gender='{$gender}',
+		DOB='{$dob}' 
+		where adminid = '{$id}'";
+		$res = mysqli_query($con, $sql);
+		header('location:../views/Profile.php');
 
-			while(!feof($file))
-			{
-				$get_admin = fgets($file);
-				$admin_array = explode('|', $get_admin);
-				
-				if(isset($admin_array[0]) and trim($admin_array[0]) == $username)
-				{
-					continue;
-				}
-				fwrite($tmp, $get_admin);
-			}
-			$string = $myname."|".$email."|".$gender."|".$dob."\r\n";
-			fwrite($tmp, $string);
-			fclose($file);
-			fclose($tmp);
-			$tmpp = fopen('../model/tmp.txt', 'r');
-			$file = fopen('../model/admin.txt', 'w');
-			$tmp = fread($tmpp, filesize('../model/tmp.txt'));
-			fwrite($file, $tmp);
-			//$current_user['username'] = $username;
-			//$current_user['password'] = $password;
-			$current_user['email'] = $email;
-			$current_user['myname'] = $myname;
-			$current_user['gender'] = $gender;
-			$current_user['dob'] = $dob;
 
-			//print_r($current_user);
-			$_SESSION['current_user'] = $current_user;
-			header('location: ../views/Profile.php');
-		}
-	}
-	else
-	{
-		echo "Error";
 	}
 ?>

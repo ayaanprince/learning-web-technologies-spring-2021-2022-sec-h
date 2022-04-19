@@ -1,33 +1,42 @@
 <?php 
 	session_start();
+	require('../model/AdminModel.php');
+
 	if(isset($_REQUEST['submit']))
 	{
+		//print_r($_REQUEST);
 		$username = $_REQUEST['username'];
+		//print_r($username);
 		$password = $_REQUEST['password'];
-		$file = fopen('../model/admin.txt', 'r');
-		while(!feof($file))
+		//print_r($password);
+		if($username != null and $password != null)
 		{
-			$get_file = fgets($file);
-			$admin_array = explode('|', $get_file);
-			if(isset($admin_array[2]) and isset($admin_array[3]))
-			{
-				
-				if(trim($admin_array[2]) == $username && trim($admin_array[3]) == $password)
+			if(login($username, $password)){
+				//print_r($username);
+                $con = connection();
+				$sql = "select * from admin where Username = '{$username}' and Password = '{$password}'";
+				$res = mysqli_query($con, $sql);
+				$adminid;
+				if(mysqli_num_rows($res))
 				{
-					$current_user['username'] = trim($admin_array[2]);
-					$current_user['password'] = trim($admin_array[3]);
-					$current_user['email'] = trim($admin_array[1]);
-					$current_user['myname'] = trim($admin_array[0]);
-					$current_user['gender'] = trim($admin_array[4]);
-					$current_user['dob'] = trim($admin_array[5]);
-					$_SESSION['current_user'] = $current_user;
-					$_SESSION['status'] = 'true';
-					//setcookie('status', 'true', time()+3600, '/');
-					header('location: ../views/Dashboard.php');
+					while($row = mysqli_fetch_assoc($res))
+					{
+						if($username == $row['Username'] and $password == $row['Password'])
+						{
+							$adminid = $row['adminid'];
+							$_SESSION['current_adminid'] = $adminid;
+							break;
+						}
+					}
 				}
-			}
-		}
-		echo "Username or password does not match";
-	}
-	else echo "Please insert username and password";
+				header('location:../views/Dashboard.php');
+			}		
+				  else{
+				   echo "Please insert username and password";
+	            }
+	            //else echo "Error";
+        }
+    }    
+        
+	
 ?>
